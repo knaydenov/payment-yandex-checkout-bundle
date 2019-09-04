@@ -1,0 +1,40 @@
+parameters:
+  kna_payment_yandex_checkout.plugin.yandex_checkout.class: Kna\PaymentYandexCheckoutBundle\Plugin\YandexCheckoutPlugin
+  kna_payment_yandex_checkout.payment_manager.class: Kna\PaymentYandexCheckoutBundle\MetadataPaymentManager
+  kna_payment_yandex_checkout.metadata_payment_manager.key: order_id
+  kna_payment_yandex_checkout.form.yandex_checkout_type.class: Kna\PaymentYandexCheckoutBundle\Form\Type\YandexCheckoutType
+  kna_payment_yandex_checkout.yandex_checkout_subscriber.class: Kna\PaymentYandexCheckoutBundle\EventListener\YandexCheckoutSubscriber
+  kna_payment_yandex_checkout.payment_id_key: payment_id
+  kna_payment_yandex_checkout.debug: false
+
+services:
+  kna_payment_yandex_checkout.plugin.yandex_checkout:
+    public: true
+    class: '%kna_payment_yandex_checkout.plugin.yandex_checkout.class%'
+    arguments:
+    - '@kna_yandex_checkout.client'
+    - '@event_dispatcher'
+    - '%kna_payment_yandex_checkout.payment_id_key%'
+    - '%kna_payment_yandex_checkout.debug%'
+    tags:
+    - { name: 'payment.plugin' }
+
+  kna_payment_yandex_checkout.yandex_checkout_subscriber:
+    class: '%kna_payment_yandex_checkout.yandex_checkout_subscriber.class%'
+    arguments:
+    - '@kna_yandex_checkout.client'
+    - '@payment.plugin_controller'
+    - '@doctrine.orm.entity_manager'
+    - '%kna_payment_yandex_checkout.payment_id_key%'
+    tags:
+    - { name: kernel.event_subscriber }
+
+  kna_payment_yandex_checkout.form.yandex_checkout_type:
+    public: true
+    class: '%kna_payment_yandex_checkout.form.yandex_checkout_type.class%'
+    tags:
+    - { name: 'form.type', alias: 'yandex_checkout' }
+    - { name: 'payment.method_form_type' }
+
+  Kna\PaymentYandexCheckoutBundle\Plugin\YandexCheckoutPlugin:
+    alias: kna_payment_yandex_checkout.plugin.yandex_checkout

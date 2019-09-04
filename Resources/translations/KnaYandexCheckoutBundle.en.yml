@@ -1,0 +1,15 @@
+Payment method: Payment method
+payment_method.bank_card: Bank card
+payment_method.apple_pay: Apple Pay
+payment_method.google_pay: Google Pay
+payment_method.yandex_money: Yandex.Money
+payment_method.qiwi: QIWI Wallet
+payment_method.webmoney: Webmoney
+payment_method.wechat: WeChat
+payment_method.sberbank: Sbebrank Online
+payment_method.alfabank: Alfa-Click
+payment_method.tinkoff_bank: Tinkoff
+payment_method.b2b_sberbank: Sberbank Business Online
+payment_method.mobile_balance: Direct carrier billing
+payment_method.cash: Cash
+payment_method.installments: Installments

@@ -1,0 +1,15 @@
+Payment method: Способ оплаты
+payment_method.bank_card: Банковская карта
+payment_method.apple_pay: Apple Pay
+payment_method.google_pay: Google Pay
+payment_method.yandex_money: Яндекс.Деньги
+payment_method.qiwi: QIWI Кошелек
+payment_method.webmoney: Webmoney
+payment_method.wechat: WeChat
+payment_method.sberbank: Сбербанк Онлайн
+payment_method.alfabank: Альфа-Клик
+payment_method.tinkoff_bank: Тинькофф
+payment_method.b2b_sberbank: Сбербанк Бизнес Онлайн
+payment_method.mobile_balance: Баланс телефона
+payment_method.cash: Наличные
+payment_method.installments: Заплатить по частям
