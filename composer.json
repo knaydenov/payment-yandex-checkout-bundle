@@ -20,5 +20,8 @@
       "psr-4": {
         "Kna\\PaymentYandexCheckoutBundle\\": ""
       }
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": ">=4.0  <5.0"
     }
 }
